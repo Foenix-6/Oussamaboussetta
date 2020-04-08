@@ -83,6 +83,28 @@ void afficher_entity(entity * e , SDL_Surface *screen)
   
 
 }
+void mvt_entity(entity *e)
+{
+if(e->pos_entity.y>=500){
+  down=0;
+  up=1;
+printf("%d , down,%d/t",e->pos_entity.y,down); }
+if(e->pos_entity.y<=100){
+  down=1;
+  up=0;
+printf("%d , up,%d/t",e->pos_entity.y,up);}
+
+  if (up==1) e->pos_entity.y--;
+  if (down==1) e->pos_entity.y++;
+
+}
+
+void anim(entity *e)
+{    e->cont_entity++;
+    if (e->cont_entity <0 || e->cont_entity > 14) 
+       e->cont_entity=0;
+
+}
 
 
 
