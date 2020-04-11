@@ -1,8 +1,8 @@
 #include "entity.h"
 
 int 
-    down=0,up=0;
-maxi_up=100 ,maxi_down=500 ;
+    down=0,up=0,
+maxi_up=100 ,maxi_down=500,
 nb_frame=15 ;//3ded les images 
 
 
@@ -24,12 +24,12 @@ void init_tab_anim_entity(SDL_Rect *clip)
     }
 
     //3al isar
-    clip[15].x = 0;
-    clip[15].y = 100;
-    clip[15].w = 100;
-    clip[15].h = 100;
-    i = 16;
-    for (i = 16; i <( 2*nb_frame ); i++)
+    clip[nb_frame].x = 0;
+    clip[nb_frame].y = 100;
+    clip[nb_frame].w = 100;
+    clip[nb_frame].h = 100;
+    i = (nb_frame + 1);
+    for (i =(nb_frame + 1); i <( 2*nb_frame ); i++)
     {
         clip[i].w = 100;
         clip[i].x = clip[i - 1].x + clip[i].w;
@@ -37,12 +37,12 @@ void init_tab_anim_entity(SDL_Rect *clip)
         clip[i].h = 100;
     }
     
-    clip[30].x = 0;
-    clip[30].y = 200;
-    clip[30].w = 100;
-    clip[30].h = 100;
-    i = 31;
-    for (i = 31; i < (3* nb_frame); i++)
+    clip[2*nb_frame ].x = 0;
+    clip[2*nb_frame ].y = 200;
+    clip[2*nb_frame ].w = 100;
+    clip[2*nb_frame ].h = 100;
+    i =(2*nb_frame +1);
+    for (i = (2*nb_frame +1); i < (3* nb_frame); i++)
     {
         clip[i].w = 100;
         clip[i].x = clip[i - 1].x + clip[i].w;
@@ -51,12 +51,12 @@ void init_tab_anim_entity(SDL_Rect *clip)
     }
 
     
-    clip[45].x = 0;
-    clip[45].y = 300;
-    clip[45].w = 100;
-    clip[45].h = 100;
-    i = 46;
-    for (i = 46; i < (4*nb_frame); i++)
+    clip[3* nb_frame].x = 0;
+    clip[3* nb_frame].y = 300;
+    clip[3* nb_frame].w = 100;
+    clip[3* nb_frame].h = 100;
+    i =( 3* nb_frame+1);
+    for (i = (3* nb_frame+1); i < (4*nb_frame); i++)
     {
         clip[i].w = 100;
         clip[i].x = clip[i - 1].x + clip[i].w;
@@ -67,9 +67,9 @@ void init_tab_anim_entity(SDL_Rect *clip)
 
 void initialiser_entity(entity *e)
 {
-    e->entity = IMG_Load("ressource/ent.png");
-    e->entity_pos.x = 700;
-    e->entity_pos.y = 100;
+    e->entity = IMG_Load("ent.png");
+    e->pos_entity.x = 700;
+    e->pos_entity.y = 100;
     init_tab_anim_entity(e->anim_entity);
     e->frame_entity=0;
     e->col=0;
