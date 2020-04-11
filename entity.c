@@ -2,18 +2,20 @@
 
 int 
     down=0,up=0;
+maxi_up=100 ,maxi_down=500 ;
+nb_frame=15 ;//3ded les images 
 
 
 
 void init_tab_anim_entity(SDL_Rect *clip)
 {
-    // dir vers droite
+    // imashy 3al imin
     clip[0].x = 0;
     clip[0].y = 0;
     clip[0].w = 100;
     clip[0].h = 100;
     int i = 1;
-    for (i = 1; i < 15; i++)
+    for (i = 1; i < nb_frame; i++)
     {
         clip[i].w = 100;
         clip[i].h = 100;
@@ -21,26 +23,26 @@ void init_tab_anim_entity(SDL_Rect *clip)
         clip[i].y = 0;
     }
 
-    //dir vers gauche
+    //3al isar
     clip[15].x = 0;
     clip[15].y = 100;
     clip[15].w = 100;
     clip[15].h = 100;
     i = 16;
-    for (i = 16; i < (30); i++)
+    for (i = 16; i <( 2*nb_frame ); i++)
     {
         clip[i].w = 100;
         clip[i].x = clip[i - 1].x + clip[i].w;
         clip[i].y = 100;
         clip[i].h = 100;
     }
-    //stable right
+    
     clip[30].x = 0;
     clip[30].y = 200;
     clip[30].w = 100;
     clip[30].h = 100;
     i = 31;
-    for (i = 31; i < (45); i++)
+    for (i = 31; i < (3* nb_frame); i++)
     {
         clip[i].w = 100;
         clip[i].x = clip[i - 1].x + clip[i].w;
@@ -48,13 +50,13 @@ void init_tab_anim_entity(SDL_Rect *clip)
         clip[i].h = 100;
     }
 
-    //stable right
+    
     clip[45].x = 0;
     clip[45].y = 300;
     clip[45].w = 100;
     clip[45].h = 100;
     i = 46;
-    for (i = 46; i < (60); i++)
+    for (i = 46; i < (4*nb_frame); i++)
     {
         clip[i].w = 100;
         clip[i].x = clip[i - 1].x + clip[i].w;
@@ -65,31 +67,32 @@ void init_tab_anim_entity(SDL_Rect *clip)
 
 void initialiser_entity(entity *e)
 {
-    e->entity = IMG_Load("");
+    e->entity = IMG_Load("ressource/ent.png");
     e->entity_pos.x = 700;
     e->entity_pos.y = 100;
     init_tab_anim_entity(e->anim_entity);
-    e->cont_entity=0;
-    e->type=1;
-e->col=0;
+    e->frame_entity=0;
+    e->col=0;
 }
 
 
 void afficher_entity(entity * e , SDL_Surface *screen)
 {
    
-   SDL_BlitSurface(e->entity,&e->anim_entity[e->cont_entity], screen, &e->pos_entity);
+   SDL_BlitSurface(e->entity,&e->anim_entity[e->frame_entity], screen, &e->pos_entity);
 
   
 
 }
+
+
 void mvt_entity(entity *e)
 {
-if(e->pos_entity.y>=500){
+if(e->pos_entity.y>=maxi_down){
   down=0;
   up=1;
 printf("%d , down,%d/t",e->pos_entity.y,down); }
-if(e->pos_entity.y<=100){
+if(e->pos_entity.y<=maxi_up){
   down=1;
   up=0;
 printf("%d , up,%d/t",e->pos_entity.y,up);}
@@ -100,12 +103,8 @@ printf("%d , up,%d/t",e->pos_entity.y,up);}
 }
 
 void anim(entity *e)
-{    e->cont_entity++;
-    if (e->cont_entity <0 || e->cont_entity > 14) 
-       e->cont_entity=0;
+{    e->frame_entity++;
+    if (e->frame_entity <0 || e->frame_entity > 14) 
+       e->frame_entity=0;
 
 }
-
-
-
-
