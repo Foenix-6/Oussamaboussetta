@@ -2,7 +2,7 @@
 
 int 
     down=0,up=0,
-maxi_up=100 ,maxi_down=500,
+maxi_up=100 ,maxi_down=600,
 nb_frame=15 ;//3ded les images 
 
 
