@@ -36,8 +36,8 @@ int main()
 	background_pos.x = 0;
 	background_pos.y = 0;
 // afficher background 
-	SDL_BlitSurface(background,NULL,screen,&background_pos);
-	SDL_Flip(screen);
+	//SDL_BlitSurface(background,NULL,screen,&background_pos);
+
  
 //init entity
 entity e;
@@ -45,12 +45,17 @@ initialiser_entity (&e) ;
 
 int done = 1;
         while (done)
-	{
+	{// get_input(screen) ;
+	SDL_BlitSurface(background,NULL,screen,&background_pos);
+
   	anim(&e);
 
 	mvt_entity(&e);
 
 	afficher_entity(&e ,screen);
+	
+	SDL_Flip(screen);
+
 	}
 
 	
