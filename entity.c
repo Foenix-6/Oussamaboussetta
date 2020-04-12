@@ -2,7 +2,7 @@
 
 int 
     down=0,up=0,
-maxi_up=100 ,maxi_down=600,
+maxi_up=100 ,maxi_down=500,
 nb_frame=15 ;//3ded les images 
 
 
@@ -67,7 +67,7 @@ void init_tab_anim_entity(SDL_Rect *clip)
 
 void initialiser_entity(entity *e)
 {
-    e->entity = IMG_Load("ent.png");
+    e->entity = IMG_Load("run.png");
     e->pos_entity.x = 700;
     e->pos_entity.y = 100;
     init_tab_anim_entity(e->anim_entity);
