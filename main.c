@@ -35,8 +35,7 @@ int main()
 	background = IMG_Load("background.jpeg");
 	background_pos.x = 0;
 	background_pos.y = 0;
-// afficher background 
-	//SDL_BlitSurface(background,NULL,screen,&background_pos);
+
 
  
 //init entity
@@ -45,17 +44,11 @@ initialiser_entity (&e) ;
 
 int done = 1;
         while (done)
-	{// get_input(screen) ;
+	{ 
+	update_entity(&e);
 	SDL_BlitSurface(background,NULL,screen,&background_pos);
-
-  	anim(&e);
-
-	mvt_entity(&e);
-
-	afficher_entity(&e ,screen);
-	
+	afficher_entity(&e ,screen);	
 	SDL_Flip(screen);
-
 	}
 
 	
