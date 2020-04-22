@@ -2,7 +2,11 @@
 
 int 
     down=0,up=0,
-nb_frame=15 ;//3ded les images 
+nb_frame=15 ,//3ded les images 
+entity_h=100,//toul
+entity_w=100,//3ardh
+entity_y=100,
+entity_x=100;
 
 
 
@@ -12,56 +16,56 @@ void init_tab_anim_entity(SDL_Rect *clip)
     // imashy 3al imin
     clip[0].x = 0;
     clip[0].y = 0;
-    clip[0].w = 100;
-    clip[0].h = 100;
+    clip[0].w = entity_w;
+    clip[0].h = entity_h;
     int i = 1;
     for (i = 1; i < nb_frame; i++)
     {
-        clip[i].w = 100;
-        clip[i].h = 100;
+        clip[i].w = entity_w;
+        clip[i].h = entity_h;
         clip[i].x = clip[i].w + clip[i - 1].x;
         clip[i].y = 0;
     }
 
     //3al isar
     clip[nb_frame].x = 0;
-    clip[nb_frame].y = 100;
-    clip[nb_frame].w = 100;
-    clip[nb_frame].h = 100;
+    clip[nb_frame].y = entity_y;
+    clip[nb_frame].w = entity_w;
+    clip[nb_frame].h = entity_h;
     i = (nb_frame + 1);
     for (i =(nb_frame + 1); i <( 2*nb_frame ); i++)
     {
-        clip[i].w = 100;
+        clip[i].w =entity_w;
         clip[i].x = clip[i - 1].x + clip[i].w;
-        clip[i].y = 100;
-        clip[i].h = 100;
+        clip[i].y =entity_y;
+        clip[i].h = entity_h;
     }
     
     clip[2*nb_frame ].x = 0;
-    clip[2*nb_frame ].y = 200;
-    clip[2*nb_frame ].w = 100;
-    clip[2*nb_frame ].h = 100;
+    clip[2*nb_frame ].y = (entity_y*2);
+    clip[2*nb_frame ].w = entity_w;
+    clip[2*nb_frame ].h = entity_h;
     i =(2*nb_frame +1);
     for (i = (2*nb_frame +1); i < (3* nb_frame); i++)
     {
-        clip[i].w = 100;
+        clip[i].w = entity_w;
         clip[i].x = clip[i - 1].x + clip[i].w;
-        clip[i].y = 200;
-        clip[i].h = 100;
+        clip[i].y = (entity_y*2);
+        clip[i].h = entity_h;
     }
 
     
     clip[3* nb_frame].x = 0;
-    clip[3* nb_frame].y = 300;
-    clip[3* nb_frame].w = 100;
-    clip[3* nb_frame].h = 100;
+    clip[3* nb_frame].y = (entity_y*3);
+    clip[3* nb_frame].w = entity_w;
+    clip[3* nb_frame].h = entity_h;
     i =( 3* nb_frame+1);
     for (i = (3* nb_frame+1); i < (4*nb_frame); i++)
     {
-        clip[i].w = 100;
+        clip[i].w = entity_w;
         clip[i].x = clip[i - 1].x + clip[i].w;
-        clip[i].y = 300;
-        clip[i].h = 100;
+        clip[i].y = (entity_y*3);
+        clip[i].h = entity_h;
     }
 }
 
@@ -126,4 +130,3 @@ void update_entity(entity *e)
 	mvt_entity(e);
 	
 }
-
