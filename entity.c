@@ -2,8 +2,8 @@
 
 int 
     down=0,up=0,
-maxi_up=100 ,maxi_down=500,
 nb_frame=15 ;//3ded les images 
+
 
 
 
@@ -67,12 +67,12 @@ void init_tab_anim_entity(SDL_Rect *clip)
 
 void initialiser_entity(entity *e)
 {
-    e->entity = IMG_Load("ent.png");
+    e->entity = IMG_Load("run.png");
     e->pos_entity.x = 700;
     e->pos_entity.y = 100;
     init_tab_anim_entity(e->anim_entity);
     e->frame_entity=0;
-    e->col=0;
+    
 }
 
 
@@ -85,26 +85,45 @@ void afficher_entity(entity * e , SDL_Surface *screen)
 
 }
 
-
 void mvt_entity(entity *e)
 {
-if(e->pos_entity.y>=maxi_down){
-  down=0;
-  up=1;
-printf("%d , down,%d/t",e->pos_entity.y,down); }
-if(e->pos_entity.y<=maxi_up){
-  down=1;
-  up=0;
-printf("%d , up,%d/t",e->pos_entity.y,up);}
+int maxi_down=500;
+int maxi_up=100;
+maxi_down=((rand()%(maxi_down+1))+maxi_down);
+maxi_up=((rand()%(maxi_up+1))+maxi_up);
 
-  if (up==1) e->pos_entity.y--;
-  if (down==1) e->pos_entity.y++;
-
+if(e->pos_entity.y>=maxi_down)
+{
+e->direction =1;
 }
+if(e->pos_entity.y<=maxi_up)
+{
+e->direction =0;
+}
+if(e->direction==1)
+{
+	e->pos_entity.y-=5;
+}
+if(e->direction==0)
+{
+	e->pos_entity.y+=5;
+}
+}
+
+
 
 void anim(entity *e)
-{    e->frame_entity++;
-    if (e->frame_entity <0 || e->frame_entity > 14) 
+{   if (e->frame_entity >=0 && e->frame_entity <(nb_frame-1)) 
+ e->frame_entity++;
+    if ( e->frame_entity ==(nb_frame-1)) 
        e->frame_entity=0;
 
+
 }
+void update_entity(entity *e)
+{
+	anim(e);
+	mvt_entity(e);
+	
+}
+
