@@ -71,7 +71,7 @@ void init_tab_anim_entity(SDL_Rect *clip)
 
 void initialiser_entity(entity *e)
 {
-    e->entity = IMG_Load("run.png");
+    e->entity = IMG_Load("entity.png");
     e->pos_entity.x = 700;
     e->pos_entity.y = 100;
     init_tab_anim_entity(e->anim_entity);
