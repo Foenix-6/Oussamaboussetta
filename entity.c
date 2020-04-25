@@ -1,7 +1,6 @@
 #include "entity.h"
 
 int 
-    down=0,up=0,
 nb_frame=15 ,//3ded les images 
 entity_h=100,//toul
 entity_w=100,//3ardh
