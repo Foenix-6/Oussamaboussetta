@@ -7,10 +7,10 @@
 
 int 
 nb_frame=12 ,
-entity_h=100,
-entity_w=100,
-entity_y=100,
-entity_x=100,
+entity_h=195,
+entity_w=135,
+entity_y=0,
+entity_x=0,
 ennemie_h=135,
 ennemie_w=129,
 ennemie_y=1,
@@ -52,7 +52,7 @@ e->type=t;
 if(e->type==0)
     e->entity = IMG_Load("ENNEMIE5.png");
 else if(e->type==1)
-    e->entity = IMG_Load("entity.png");
+    e->entity = IMG_Load("ES4.png");
 else printf("loading error\n");
     e->pos_entity.x = 700;
     e->pos_entity.y = 100;
@@ -88,9 +88,12 @@ void afficher_entity(entity * e , SDL_Surface *screen)
 */
 
 void mvt_entity(entity *e,personnage *p)
-{ int diff;
-int maxi_down=350;
-int maxi_up=50;
+{	srand (time(0));
+	int diff;
+	int maxi_down=300+rand()%300;
+	int maxi_up=50+rand()%300;
+
+  	printf("maxup : %d\tmaxdown : %d\n",maxi_up,maxi_down );
 
 
 if(e->pos_entity.y>= maxi_down)
@@ -105,7 +108,7 @@ e->direction =0;
 if(e->direction==1)
 {   
 	e->pos_entity.y-=5;
- rand_min_max(e);
+ 
 
 
 }
@@ -167,14 +170,14 @@ void update_entity(entity *e,personnage *p)
 */
 
 
-void rand_min_max(entity *e){
-  srand (time(0));
-  e->maxi_up=50+rand()%200;
-  e->maxi_down=350+rand()%200;
+/*void rand_min_max(entity *e){
+	srand (time(0));
+  	e->maxi_up=50+rand()%100;
+ 	e->maxi_down=350+rand()%100;
 
-  printf("maxup : %d\tmaxdown : %d\n",e->maxi_up,e->maxi_down );
+  	printf("maxup : %d\tmaxdown : %d\n",e->maxi_up,e->maxi_down );
 
-}
+}*/
 
 input getinput(int *done,input in)
 { 
