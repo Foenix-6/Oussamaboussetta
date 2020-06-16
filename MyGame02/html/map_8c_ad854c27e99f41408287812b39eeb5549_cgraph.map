@@ -1,0 +1,5 @@
+<map id="mise_a_jour_map" name="mise_a_jour_map">
+<area shape="rect" id="node2" href="$map_8c.html#a61b189aa3bdc57b4b0d1d655060f0865" title="To initialize the postion of the mini_perso m . " alt="" coords="185,5,272,32"/>
+<area shape="rect" id="node3" href="$map_8c.html#a0cc077dcdafe9f29809d29e5733876c2" title="To initialize the postion of the mini_entity m . " alt="" coords="185,56,272,83"/>
+<area shape="rect" id="node4" href="$map_8c.html#ae83553df8b99358617ca9eae8c40520b" title="To initialize the postion of the mini_ennemie m . " alt="" coords="177,107,280,133"/>
+</map>
