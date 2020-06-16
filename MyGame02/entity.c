@@ -8,10 +8,10 @@
 
 int 
 nb_frame=12 ,
-entity_h=195,
-entity_w=135,
-entity_y=0,
-entity_x=0;
+entity_h=100,
+entity_w=100,
+entity_y=100,
+entity_x=100;
 
 
 
@@ -39,7 +39,7 @@ void initialiser_entity(entity *e)
 {
 
 
-    e->entity = IMG_Load("ES4.png");
+    e->entity = IMG_Load("es.png");
 
     e->pos_entity.x = 400;
     e->pos_entity.y = 100;
